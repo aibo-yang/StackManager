@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="PropertyGrid\Images\AdvancedProperties11.png" />
+    <None Remove="PropertyGrid\Images\Categorize16.png" />
+    <None Remove="PropertyGrid\Images\ClearFilter16.png" />
+    <None Remove="PropertyGrid\Images\ClearFilter16_Green.png" />
+    <None Remove="PropertyGrid\Images\ClearFilter16_White.png" />
+    <None Remove="PropertyGrid\Images\Database11.png" />
+    <None Remove="PropertyGrid\Images\Inheritance11.png" />
+    <None Remove="PropertyGrid\Images\Local11.png" />
+    <None Remove="PropertyGrid\Images\Resource11.png" />
+    <None Remove="PropertyGrid\Images\SortAscending16.png" />
+    <None Remove="PropertyGrid\Images\SortAscending16_White.png" />
+    <None Remove="PropertyGrid\Images\Style11.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="PropertyGrid\Images\AdvancedProperties11.png" />
+    <Resource Include="PropertyGrid\Images\Categorize16.png" />
+    <Resource Include="PropertyGrid\Images\ClearFilter16.png" />
+    <Resource Include="PropertyGrid\Images\ClearFilter16_Green.png" />
+    <Resource Include="PropertyGrid\Images\ClearFilter16_White.png" />
+    <Resource Include="PropertyGrid\Images\Database11.png" />
+    <Resource Include="PropertyGrid\Images\Inheritance11.png" />
+    <Resource Include="PropertyGrid\Images\Local11.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="PropertyGrid\Images\Resource11.png" />
+    <Resource Include="PropertyGrid\Images\SortAscending16.png" />
+    <Resource Include="PropertyGrid\Images\SortAscending16_White.png" />
+    <Resource Include="PropertyGrid\Images\Style11.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Generic\Brushes1.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VisualScreen\FrameListBox\Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="VisualScreen\FrameHeader\Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VisualScreen\FramePathAnimation\Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VisualScreen\FrameBorder\Themes\Generic.xaml">
+        <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+        <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VisualScreen\FrameBannerListBox\Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VisualScreen\FrameTabControl\Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Charts\Themes\" />
+  </ItemGroup>
+
+</Project>

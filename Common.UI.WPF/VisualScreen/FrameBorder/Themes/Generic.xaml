@@ -1,0 +1,138 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Common.UI.WPF.VisualScreen">
+
+    <Style TargetType="{x:Type local:FrameBorder}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:FrameBorder}">
+                    <Grid>
+                        <Border BorderBrush="#5f73ad" BorderThickness="1" />
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="#5f73ad"
+                            BorderThickness="1">
+                            <Border.OpacityMask>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0" Color="#00000000" />
+                                    <GradientStop Offset=".7" Color="#10000000" />
+                                    <GradientStop Offset=".9" Color="#16000000" />
+                                    <GradientStop Offset="1" Color="#18000000" />
+                                </RadialGradientBrush>
+                            </Border.OpacityMask>
+                        </Border>
+                        <DockPanel LastChildFill="False">
+                            <Grid DockPanel.Dock="Top">
+                                <Canvas
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0.5"
+                                    HorizontalAlignment="Left">
+                                    <Path
+                                        Data="M0,20 0,0 20,0"
+                                        Stroke="#0deff2"
+                                        StrokeThickness="2" />
+                                </Canvas>
+                                <Canvas
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0.5"
+                                    HorizontalAlignment="Right">
+                                    <Path
+                                        Data="M0,20 0,0 20,0"
+                                        Stroke="#0deff2"
+                                        StrokeThickness="2" />
+                                    <Canvas.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="90" CenterX="10" CenterY="10" />
+                                        </TransformGroup>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                            </Grid>
+                            <Grid DockPanel.Dock="Bottom">
+                                <Canvas
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0.5"
+                                    HorizontalAlignment="Right">
+                                    <Path
+                                        Data="M0,20 0,0 20,0"
+                                        Stroke="#0deff2"
+                                        StrokeThickness="2" />
+                                    <Canvas.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="180" CenterX="10" CenterY="10" />
+                                        </TransformGroup>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                                <Canvas
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0.5"
+                                    HorizontalAlignment="Left">
+                                    <Path
+                                        Data="M0,20 0,0 20,0"
+                                        Stroke="#0deff2"
+                                        StrokeThickness="2" />
+                                    <Canvas.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="-90" CenterX="10" CenterY="10" />
+                                        </TransformGroup>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+                            </Grid>
+                        </DockPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel
+                                Height="20"
+                                Margin="10"
+                                Orientation="Horizontal"
+                                Visibility="{TemplateBinding TitleVisibility}">
+                                <Canvas Width="30" HorizontalAlignment="Left">
+                                    <Path Data="M0,2 5,2 15,10 10,10 Z" Fill="#0deff2" />
+                                    <Path Data="M0,2 5,2 15,10 10,10 Z" Fill="#0deff2">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform CenterX="10" CenterY="10" ScaleY="-1" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Data="M0,2 5,2 15,10 10,10 Z" Fill="#0deff2">
+                                        <Path.RenderTransform>
+                                            <TranslateTransform X="10" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Data="M0,2 5,2 15,10 10,10 Z" Fill="#0deff2">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterX="10" CenterY="10" ScaleY="-1" />
+                                                <TranslateTransform X="10" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Canvas>
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="#29d9e3"
+                                    Text="{TemplateBinding Title}" />
+                            </StackPanel>
+                            <Viewbox Grid.Row="1">
+                                <ContentPresenter
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}" />
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

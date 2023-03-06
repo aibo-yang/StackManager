@@ -1,0 +1,10 @@
+﻿<Window x:Class="Demo.Colors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo.Colors"
+        mc:Ignorable="d"
+        Title="System Colors" ResizeMode="NoResize" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
+    <WrapPanel Name="wrapPanel"></WrapPanel>
+</Window>

@@ -1,0 +1,143 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+	  <!--条件编译符-->
+    <DefineConstants>_MOCK_ENABLE</DefineConstants>
+	 
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\iconfont.ttf" />
+    <None Remove="Resources\Images\3D.png" />
+    <None Remove="Resources\Images\arrow.png" />
+    <None Remove="Resources\Images\background.png" />
+    <None Remove="Resources\Images\border.png" />
+    <None Remove="Resources\Images\convery.png" />
+    <None Remove="Resources\Images\device.png" />
+    <None Remove="Resources\Images\elevator.png" />
+    <None Remove="Resources\Images\full_mini.png" />
+    <None Remove="Resources\Images\header_left.png" />
+    <None Remove="Resources\Images\header_right.png" />
+    <None Remove="Resources\Images\layout.png" />
+    <None Remove="Resources\Images\layout1.png" />
+    <None Remove="Resources\Images\layout3.png" />
+    <None Remove="Resources\Images\layout_TPS.png" />
+    <None Remove="Resources\Images\login.psd" />
+    <None Remove="Resources\Images\logo.jpg" />
+    <None Remove="Resources\Images\over.png" />
+    <None Remove="Resources\Images\packer.png" />
+    <None Remove="Resources\Images\pallet.png" />
+    <None Remove="Resources\Images\robot.png" />
+    <None Remove="Resources\Images\track.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="NLog" Version="4.7.13" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.7.4" />
+    <PackageReference Include="Obfuscar" Version="2.2.33">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Communication\Common.Communication.csproj" />
+    <ProjectReference Include="..\Common.Toolkits\Common.Toolkits.csproj" />
+    <ProjectReference Include="..\Common.UI.WPF\Common.UI.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\iconfont.ttf" />
+    <Resource Include="Resources\Images\background.png" />
+    <Resource Include="Resources\Images\layout.png" />
+    <Resource Include="Resources\Images\layout1.png" />
+    <Resource Include="Resources\Images\layout3.png" />
+    <Resource Include="Resources\Images\layout_TPS.png" />
+	<Resource Include="Resources\Images\NBA.png" />
+	<Resource Include="Resources\Images\NBA_new.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\CacheEditView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DeviceEditView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ChangePasswordView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AppSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Obfuscar.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\CacheEditView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DeviceEditView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ChangePasswordView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LoginView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+    <Target Name="Obfuscation" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Release' ">
+        <Message Importance="High" Text="Obfuscar task has been called." />
+        <Exec WorkingDirectory="$(TargetDir)" Command="echo $(Configuration)" />
+        <Exec WorkingDirectory="$(TargetDir)" Command="cd $(TargetDir)" />
+        <Exec WorkingDirectory="$(TargetDir)" Command="$(Obfuscar) $(ProjectDir)Obfuscar.xml" />
+        <Exec WorkingDirectory="$(TargetDir)" Command="xcopy /y $(TargetDir)Obfuscated\*.dll $(TargetDir)" />
+        <!--<Copy SourceFiles="$(TargetDir)Obfuscated\*.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true"/>-->
+    </Target>
+
+    <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+</Project>

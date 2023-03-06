@@ -1,0 +1,44 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Theme.Name">Dark.Base</system:String>
+    <system:String x:Key="Theme.Origin">Common.UI.WPF</system:String>
+    <system:String x:Key="Theme.DisplayName">Dark(Base)</system:String>
+    <system:String x:Key="Theme.BaseColorScheme">Dark</system:String>
+    <system:String x:Key="Theme.ColorScheme">Base</system:String>
+
+    <Color x:Key="Common.GrayColor1">#ff1f1f1f</Color>
+    <Color x:Key="Common.GrayColor2">#ff262626</Color>
+    <Color x:Key="Common.GrayColor3">#ff313131</Color>
+    <Color x:Key="Common.GrayColor4">#ff404040</Color>
+    <Color x:Key="Common.GrayColor5">#ff535353</Color>
+    <Color x:Key="Common.GrayColor6">#ff6a6a6a</Color>
+
+    <Color x:Key="Common.Disabled.FontColor">#ff868686</Color>
+    <Color x:Key="Common.FontColor">#ffdddddd</Color>
+    <Color x:Key="Common.RedColor">#ffff5a6a</Color>
+    <Color x:Key="Common.GreenColor">#ff90ee90</Color>
+    <Color x:Key="Common.BlueColor">#ff80deff</Color>
+    <Color x:Key="Common.OrangeColor">#ffffd067</Color>
+    <Color x:Key="Common.Selected.BackgroundColor">#ff3c67b6</Color>
+    <Color x:Key="Common.MouseOver.BorderColor">#ff7eb4ea</Color>
+
+    <SolidColorBrush x:Key="Common.GrayBrush1" Color="{StaticResource Common.GrayColor1}" />
+    <SolidColorBrush x:Key="Common.GrayBrush2" Color="{StaticResource Common.GrayColor2}" />
+    <SolidColorBrush x:Key="Common.GrayBrush3" Color="{StaticResource Common.GrayColor3}" />
+    <SolidColorBrush x:Key="Common.GrayBrush4" Color="{StaticResource Common.GrayColor4}" />
+    <SolidColorBrush x:Key="Common.GrayBrush5" Color="{StaticResource Common.GrayColor5}" />
+    <SolidColorBrush x:Key="Common.GrayBrush6" Color="{StaticResource Common.GrayColor6}" />
+
+    <SolidColorBrush x:Key="Common.Disabled.FontBrush" Color="{StaticResource Common.Disabled.FontColor}" />
+    <SolidColorBrush x:Key="Common.FontBrush" Color="{StaticResource Common.FontColor}" />
+    <SolidColorBrush x:Key="Common.RedBrush" Color="{StaticResource Common.RedColor}" />
+    <SolidColorBrush x:Key="Common.GreenBrush" Color="{StaticResource Common.GreenColor}" />
+    <SolidColorBrush x:Key="Common.BlueBrush" Color="{StaticResource Common.BlueColor}" />
+    <SolidColorBrush x:Key="Common.OrangeBrush" Color="{StaticResource Common.OrangeColor}" />
+    <SolidColorBrush x:Key="Common.Selected.BackgroundBrush" Color="{StaticResource Common.Selected.BackgroundColor}" />
+    <SolidColorBrush x:Key="Common.MouseOver.BorderBrush" Color="{StaticResource Common.MouseOver.BorderColor}" />
+
+</ResourceDictionary>

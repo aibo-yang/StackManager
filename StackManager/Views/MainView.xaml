@@ -1,0 +1,518 @@
+﻿<Window
+    x:Class="StackManager.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:be="clr-namespace:StackManager.Behaviors"
+    xmlns:cv="clr-namespace:StackManager.Converters"
+    xmlns:pm="http://prismlibrary.com/"
+    xmlns:uw="http://kstopa.com.cn/common/ui/wpf"
+    Title="StackManager"
+    Width="1280"
+    Height="768"
+    pm:ViewModelLocator.AutoWireViewModel="True"
+    FontFamily="微软雅黑"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="None">
+
+    <Window.Resources>
+        <cv:StackCountToBorderWidthConverter x:Key="StackCountToBorderWidthConverter" />
+        <cv:LineCountToBorderHeightConverter x:Key="LineCountToBorderHeightConverter" />
+        <PathGeometry
+            x:Key="ArrowPathData"
+            x:Shared="False"
+            Figures="M 0,0 L 12,0 M 6,-6 L 12,0 L 6,6" />
+        <PathGeometry
+            x:Key="FlowlinePathData"
+            x:Shared="False"
+            Figures="M 130,710 890,710 935,725 970,725 1015,710 1290,710 C 1290,710 1305,710 1320,695 L 1320,695 1470,545 C 1470,545 1480,535 1483,510 L 1483,510 1483,335 1450,335" />
+    </Window.Resources>
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="300" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="3" Opacity=".4">
+            <Border.Background>
+                <ImageBrush ImageSource="/Resources/Images/background.png" />
+            </Border.Background>
+        </Border>
+        <uw:FrameHeader
+            Grid.Row="0"
+            Title="{Binding Title}"
+            TitleFontSize="32"
+            TitleTextSpace="5 0" />
+        <uw:FrameTabControl
+            Grid.Row="1"
+            Margin="10,30,10,0"
+            TabStripPlacement="Top">
+            <uw:FrameTabItem Header="工单信息">
+                <uw:FrameListBox
+                    x:Name="orderList"
+                    be:ListBoxBehavior.AutoScroll="True"
+                    ColumnMinHeight="40"
+                    DisplayColumnNames="Name,Type,LineName,StartDateTime,Count"
+                    DisplayHeaders="工单,机种,所属产线,开始时间,生产数量"
+                    HeaderHeight="36"
+                    ItemsSource="{Binding Orders}" />
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="设备状态">
+                <uw:FrameBannerListBox
+                    DisplayColumnNames="Name,Status,Efficency,CycleTime"
+                    DisplayHeaders="工站名称,工站状态,稼动率,循环时间"
+                    HeaderWidth="80"
+                    ItemsSource="{Binding Devices}">
+                    <uw:FrameBannerListBox.ItemTemplate>
+                        <DataTemplate>
+                            <UniformGrid Columns="1">
+                                <Grid>
+                                    <Border
+                                        BorderBrush="SkyBlue"
+                                        BorderThickness="0,1,1,1"
+                                        Opacity=".2" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="15"
+                                        Foreground="SkyBlue"
+                                        Text="{Binding Name}" />
+                                </Grid>
+                                <Grid>
+                                    <Border
+                                        BorderBrush="SkyBlue"
+                                        BorderThickness="0,0,1,1"
+                                        Opacity=".2" />
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        Orientation="Horizontal"
+                                        TextBlock.Foreground="GreenYellow">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="15"
+                                            FontWeight="Bold">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Status}" Value="0">
+                                                            <Setter Property="Text" Value="未知" />
+                                                            <Setter Property="Foreground" Value="Gray" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="1">
+                                                            <Setter Property="Text" Value="准备" />
+                                                            <Setter Property="Foreground" Value="SeaGreen" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="2">
+                                                            <Setter Property="Text" Value="运行" />
+                                                            <Setter Property="Foreground" Value="LightGreen" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="3">
+                                                            <Setter Property="Text" Value="寸动" />
+                                                            <Setter Property="Foreground" Value="Yellow" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="4">
+                                                            <Setter Property="Text" Value="手动" />
+                                                            <Setter Property="Foreground" Value="Yellow" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="5">
+                                                            <Setter Property="Text" Value="故障" />
+                                                            <Setter Property="Foreground" Value="Red" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="6">
+                                                            <Setter Property="Text" Value="条件不足" />
+                                                            <Setter Property="Foreground" Value="Yellow" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid>
+                                    <Border
+                                        BorderBrush="SkyBlue"
+                                        BorderThickness="0,0,1,1"
+                                        Opacity=".2" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="15"
+                                        Foreground="SkyBlue"
+                                        Text="{Binding Efficency}" />
+                                </Grid>
+                                <Grid>
+                                    <Border
+                                        BorderBrush="SkyBlue"
+                                        BorderThickness="0,0,1,1"
+                                        Opacity=".2" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="15"
+                                        Foreground="SkyBlue"
+                                        Text="{Binding CycleTime}" />
+                                </Grid>
+                            </UniformGrid>
+                        </DataTemplate>
+                    </uw:FrameBannerListBox.ItemTemplate>
+                </uw:FrameBannerListBox>
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="提升机信息">
+                <uw:FrameListBox
+                    be:ListBoxBehavior.AutoScroll="True"
+                    ColumnMinHeight="40"
+                    DisplayColumnNames="Index,Name,CurrentCount"
+                    DisplayHeaders="序号,名称,箱子数量"
+                    HeaderHeight="36"
+                    ItemsSource="{Binding Elevators}" />
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="缓存线信息">
+                <uw:FrameListBox
+                    be:ListBoxBehavior.AutoScroll="True"
+                    ColumnMinHeight="40"
+                    DisplayColumnNames="Index,Name,Count"
+                    DisplayHeaders="序号,机种,缓存数量"
+                    HeaderHeight="36"
+                    ItemsSource="{Binding Caches}" />
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="栈板信息">
+                <uw:FrameListBox
+                    be:ListBoxBehavior.AutoScroll="True"
+                    ColumnMinHeight="40"
+                    DisplayColumnNames="Index,Name,Type,CurrentCount,MaxCount"
+                    DisplayHeaders="序号,产线,机种,当前箱数,最大箱数"
+                    HeaderHeight="36"
+                    ItemsSource="{Binding Pallets}" />
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="报警信息">
+                <uw:FrameListBox
+                    be:ListBoxBehavior.AutoScroll="True"
+                    ColumnMinHeight="40"
+                    DisplayColumnNames="Index,Name,StationName,DateTime,Message"
+                    DisplayHeaders="序号,警报名称,所属工站,报警时间,报警信息"
+                    HeaderHeight="36"
+                    ItemsSource="{Binding Alarms}" />
+            </uw:FrameTabItem>
+            <uw:FrameTabItem Header="系统配置">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="Yellow"
+                            Text="欢迎你, 管理员" />
+                        <UniformGrid
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Rows="2">
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="ProfileEditView"
+                                Content="基础数据" />
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="ProductEditView"
+                                Content="箱体配置" />
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="DeviceEditView"
+                                Content="设备配置" />
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="FlowlineEditView"
+                                Content="产线配置" />
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="CacheEditView"
+                                Content="缓存管理" />
+                            <Button
+                                Margin="4"
+                                Command="{Binding ButtonCommands}"
+                                CommandParameter="SalveDeviceView"
+                                Content="主从设备配置" />
+                            <Button
+                                Margin="4"
+                                Click="Button_SystemExit_Click"
+                                Content="退出系统" />
+                        </UniformGrid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding AdminIsLogin}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                    <UniformGrid
+                        Grid.Row="1"
+                        HorizontalAlignment="Right"
+                        Rows="1">
+                        <Button Margin="4" Command="{Binding ButtonCommands}">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <Setter Property="Content" Value="系统登录" />
+                                    <Setter Property="CommandParameter" Value="LoginView" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding AdminIsLogin}" Value="True">
+                                            <Setter Property="Button.Content" Value="退出登录" />
+                                            <Setter Property="Button.CommandParameter" Value="Logout" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button
+                            Margin="4"
+                            Command="{Binding ButtonCommands}"
+                            CommandParameter="ChangePasswordView"
+                            Content="更改密码" />
+                    </UniformGrid>
+                </Grid>
+            </uw:FrameTabItem>
+        </uw:FrameTabControl>
+        <Grid Grid.Row="2" Margin="10,20,10,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <uw:FrameBorder Title="产线布局" Margin="0,0,20,0">
+                <Grid
+                    Width="3000"
+                    Height="1600"
+                    Margin="20,0,20,20">
+                    <Canvas Panel.ZIndex="1">
+                        <ItemsControl
+                            Canvas.Left="2502"
+                            Canvas.Top="169"
+                            Width="376"
+                            Height="1418"
+                            ItemsSource="{Binding Pallets}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="Canvas.Left" Value="{Binding Path=CanvasLeft}" />
+                                    <Setter Property="Canvas.Top" Value="{Binding Path=CanvasTop}" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="82"
+                                        Height="60"
+                                        Background="{Binding PalletBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="36"
+                                            FontWeight="Bold"
+                                            Foreground="BlueViolet"
+                                            Text="{Binding Name}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Canvas>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="14*" />
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <uw:FrameBannerListBox
+                                ColumnFontSize="30"
+                                DisplayColumnNames="Name,Count"
+                                DisplayHeaders="机种型号,缓存数量"
+                                Foreground="SkyBlue"
+                                HeaderFontSize="30"
+                                HeaderWidth="160"
+                                ItemsSource="{Binding Caches}" />
+                        </Grid>
+                        <Viewbox Grid.Row="1">
+                            <Canvas Width="3000" Height="1400">
+                                <Canvas.Background>
+                                    <ImageBrush ImageSource="/Resources/Images/layout_TPS.png" Stretch="Uniform" />
+                                </Canvas.Background>
+                            </Canvas>
+                        </Viewbox>
+                        <Grid Grid.Row="1" VerticalAlignment="Bottom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <ItemsControl ItemsSource="{Binding Lines}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Canvas />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style TargetType="ContentPresenter">
+                                        <Setter Property="Canvas.Left" Value="{Binding Path=CanvasLeft}" />
+                                        <Setter Property="Canvas.Bottom" Value="60" />
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="60" />
+                                            </Grid.RowDefinitions>
+                                            <TextBlock
+                                                Margin="0,0,0,30"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="34"
+                                                FontWeight="Bold"
+                                                Foreground="White"
+                                                Text="{Binding CurrentCount}" />
+                                            <Border
+                                                Grid.Row="1"
+                                                Width="40"
+                                                Background="{Binding LineBrush}">
+                                                <Border.Height>
+                                                    <MultiBinding Converter="{StaticResource LineCountToBorderHeightConverter}">
+                                                        <Binding Path="CurrentCount" />
+                                                        <Binding Path="MaxCount" />
+                                                    </MultiBinding>
+                                                </Border.Height>
+                                            </Border>
+                                            <TextBlock
+                                                Grid.Row="2"
+                                                Margin="0,30,0,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="34"
+                                                FontWeight="Bold"
+                                                Foreground="#169ea3"
+                                                Text="{Binding Name}"
+                                                TextWrapping="Wrap" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </uw:FrameBorder>
+            <Grid Grid.Column="1">
+                <uw:FrameBorder Title="栈板信息">
+                    <ItemsControl Width="380" ItemsSource="{Binding Pallets}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="1" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="10,0,10,10">
+                                    <Border Background="SkyBlue" CornerRadius="10">
+                                        <Border.OpacityMask>
+                                            <RadialGradientBrush>
+                                                <GradientStop Offset="0" Color="#09000000" />
+                                                <GradientStop Offset="1" Color="#22000000" />
+                                            </RadialGradientBrush>
+                                        </Border.OpacityMask>
+                                    </Border>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="180" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Margin="10,2,2,2"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="White">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}{0} {1}">
+                                                    <Binding Path="Name" />
+                                                    <Binding Path="Type" />
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <Border
+                                            x:Name="ProcessBorder"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Stretch"
+                                            Background="DarkSlateGray"
+                                            CornerRadius="10">
+                                            <Border
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Stretch"
+                                                ClipToBounds="True"
+                                                CornerRadius="10">
+                                                <Border.Width>
+                                                    <MultiBinding Converter="{StaticResource StackCountToBorderWidthConverter}">
+                                                        <Binding Path="Percentage" />
+                                                        <Binding ElementName="ProcessBorder" Path="ActualWidth" />
+                                                    </MultiBinding>
+                                                </Border.Width>
+                                                <Border
+                                                    Width="{Binding ElementName=ProcessBorder, Path=ActualWidth}"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Stretch"
+                                                    CornerRadius="10">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                                                            <GradientStop Offset="0" Color="LightGreen" />
+                                                            <GradientStop Offset="0.2" Color="GreenYellow" />
+                                                            <GradientStop Offset="0.4" Color="Yellow" />
+                                                            <GradientStop Offset="0.6" Color="Orange" />
+                                                            <GradientStop Offset="0.8" Color="OrangeRed" />
+                                                            <GradientStop Offset="1" Color="DarkRed" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                </Border>
+                                            </Border>
+                                        </Border>
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Margin="10,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Foreground="Black">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}{0}/{1}">
+                                                    <Binding Path="CurrentCount" />
+                                                    <Binding Path="MaxCount" />
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </uw:FrameBorder>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>

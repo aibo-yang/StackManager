@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:core="clr-namespace:Common.UI.WPF.Core">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="/Common.UI.WPF;Component/WatermarkTextBox/Themes/Generic.xaml"/>
+        <ResourceDictionary Source="/Common.UI.WPF;Component/Pie/Themes/Generic.xaml"/>
+        <ResourceDictionary Source="/Common.UI.WPF;Component/PropertyGrid/Themes/Generic.xaml"/>-->
+
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="Themes/Generic/Brushes.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="ButtonSpinner/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="NumericUpDown/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="WatermarkTextBox/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="Pie/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="PropertyGrid/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FrameHeader/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FrameBorder/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FrameTabControl/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FramePathAnimation/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FrameListBox/Themes/Generic.xaml" />
+        <core:VersionResourceDictionary AssemblyName="Common.UI.WPF" SourcePath="VisualScreen/FrameBannerListBox/Themes/Generic.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

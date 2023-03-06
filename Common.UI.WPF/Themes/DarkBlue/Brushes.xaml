@@ -1,0 +1,87 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:themes="clr-namespace:Common.UI.WPF.Themes">
+
+    <system:String x:Key="Theme.Name">Dark.Blue</system:String>
+    <system:String x:Key="Theme.Origin">Common.Metro</system:String>
+    <system:String x:Key="Theme.DisplayName">Blue (Dark)</system:String>
+    <system:String x:Key="Theme.BaseColorScheme">Dark</system:String>
+    <system:String x:Key="Theme.ColorScheme">Blue</system:String>
+
+    <Color x:Key="Theme.PrimaryAccentColor">#FF0078D7</Color>
+    <SolidColorBrush x:Key="Theme.ShowcaseBrush" Color="#FF0078D7" options:Freeze="True" />
+
+    <Color x:Key="Common.Colors.Highlight">#FF00589F</Color>
+    <Color x:Key="Common.Colors.AccentBase">#FF0078D7</Color>
+    <Color x:Key="Common.Colors.Accent">#CC0078D7</Color>
+    <Color x:Key="Common.Colors.Accent2">#990078D7</Color>
+    <Color x:Key="Common.Colors.Accent3">#660078D7</Color>
+    <Color x:Key="Common.Colors.Accent4">#330078D7</Color>
+
+    <Color x:Key="Common.Colors.ThemeForeground">#FFFFFFFF</Color>
+    <Color x:Key="Common.Colors.ThemeBackground">#FF252525</Color>
+    <Color x:Key="Common.Colors.IdealForeground">White</Color>
+
+    <Color x:Key="Common.Colors.Gray1">#FFF9F9F9</Color>
+    <Color x:Key="Common.Colors.Gray2">#FF7F7F7F</Color>
+    <Color x:Key="Common.Colors.Gray3">#FF9D9D9D</Color>
+    <Color x:Key="Common.Colors.Gray4">#FFA59F93</Color>
+    <Color x:Key="Common.Colors.Gray5">#FFB9B9B9</Color>
+    <Color x:Key="Common.Colors.Gray6">#FFCCCCCC</Color>
+    <Color x:Key="Common.Colors.Gray7">#FF7E7E7E</Color>
+    <Color x:Key="Common.Colors.Gray8">#FF454545</Color>
+    <Color x:Key="Common.Colors.Gray9">#5EC9C9C9</Color>
+    <Color x:Key="Common.Colors.Gray10">#FF2F2F2F</Color>
+
+    <Color x:Key="Common.Colors.Gray">#FF7D7D7D</Color>
+    <Color x:Key="Common.Colors.Gray.MouseOver">#FFAAAAAA</Color>
+    <Color x:Key="Common.Colors.Gray.SemiTransparent">#40808080</Color>
+
+    <Color x:Key="Common.Colors.Flyout">#FF2B2B2B</Color>
+
+    <SolidColorBrush x:Key="Common.Brushes.ThemeBackground" Color="{StaticResource Common.Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.ThemeForeground" Color="{StaticResource Common.Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Text" Color="{StaticResource Common.Colors.ThemeForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.IdealForeground" Color="{StaticResource Common.Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.IdealForegroundDisabled" Color="#FFADADAD" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Selected.Foreground" Color="{StaticResource Common.Colors.IdealForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.WindowTitle" Color="{StaticResource Common.Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.WindowTitle.NonActive" Color="#808080" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Border.NonActive" Color="#808080" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.Highlight" Color="{StaticResource Common.Colors.Highlight}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.Transparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.SemiTransparent" Color="#55FFFFFF" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.AccentBase" Color="{StaticResource Common.Colors.AccentBase}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Accent" Color="{StaticResource Common.Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Accent2" Color="{StaticResource Common.Colors.Accent2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Accent3" Color="{StaticResource Common.Colors.Accent3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Accent4" Color="{StaticResource Common.Colors.Accent4}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.Gray1" Color="{StaticResource Common.Colors.Gray1}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray2" Color="{StaticResource Common.Colors.Gray2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray3" Color="{StaticResource Common.Colors.Gray3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray4" Color="{StaticResource Common.Colors.Gray4}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray5" Color="{StaticResource Common.Colors.Gray5}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray6" Color="{StaticResource Common.Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray7" Color="{StaticResource Common.Colors.Gray7}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray8" Color="{StaticResource Common.Colors.Gray8}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray9" Color="{StaticResource Common.Colors.Gray9}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray10" Color="{StaticResource Common.Colors.Gray10}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.Gray" Color="{StaticResource Common.Colors.Gray}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray.MouseOver" Color="{StaticResource Common.Colors.Gray.MouseOver}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Gray.SemiTransparent" Color="{StaticResource Common.Colors.Gray.SemiTransparent}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Common.Brushes.Control.Background" Color="{StaticResource Common.Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Control.Border" Color="{StaticResource Common.Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Control.Disabled" Color="#A5FFFFFF" options:Freeze="True" />
+    <SolidColorBrush x:Key="Common.Brushes.Control.Validation" Color="#FFDB000C" options:Freeze="True" />
+</ResourceDictionary>

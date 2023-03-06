@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Common.UI.WPF.PropertyGrid.LockedDependencyObject">
+    <Position X="1.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQCAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>PropertyGrid\Definitions\LockedDependencyObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.LockedObservableCollection&lt;T&gt;">
+    <Position X="1.25" Y="9" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\LockedObservableCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.PropertyDefinition">
+    <Position X="4.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQUAQAAFAkQAAAIEAAAAAAAAAAAAAAAAAIAAAACAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\PropertyDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.PropertyDefinitionBase">
+    <Position X="4.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAIAAAAAAAAACAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\PropertyDefinitionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.PropertyDefinitionCollection">
+    <Position X="4.5" Y="11.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\PropertyDefinitionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.PropertyDefinitionCollectionBase&lt;T&gt;">
+    <Position X="4.5" Y="9" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\PropertyDefinitionCollectionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.EditorDefinitionCollection">
+    <Position X="8" Y="11.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\EditorDefinitionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.EditorDefinitionBase">
+    <Position X="7.25" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABgAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\EditorDefinitionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.DescriptorPropertyDefinitionBase">
+    <Position X="1.25" Y="13.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EQQE0KIQgFAsSIRQLACYZQgDQIRQAwdQSAErwQFACIE=</HashCode>
+      <FileName>PropertyGrid\Definitions\DescriptorPropertyDefinitionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.UI.WPF.PropertyGrid.DescriptorPropertyDefinition">
+    <Position X="4.75" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQEAIAAAAAACABBEAAQIAABUIAUAgdACAECQAAAAAA=</HashCode>
+      <FileName>PropertyGrid\Definitions\DescriptorPropertyDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

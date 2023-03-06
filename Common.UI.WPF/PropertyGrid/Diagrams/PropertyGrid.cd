@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Common.UI.WPF.PropertyGrid.PropertyGrid" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.75" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>VIxvEhT2kGx4e2BW6QSQXQRSmHiAxOxJW9Zo1lDKdSA=</HashCode>
+      <FileName>PropertyGrid\PropertyGrid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Common.UI.WPF.PropertyGrid.IPropertyContainer">
+    <Position X="0.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQQUAgAAAAAAAAEAAACAAAAAAAAQAAAAEAAAAA=</HashCode>
+      <FileName>PropertyGrid\IPropertyContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
